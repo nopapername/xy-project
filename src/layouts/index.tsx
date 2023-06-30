@@ -1,8 +1,10 @@
-import { initRem, setTitle, getLocalStorage } from '@/utils';
 import { useMount } from 'ahooks';
-import 'antd/dist/antd.less';
-import classnames from 'classnames';
 import { history, Outlet, useModel } from 'umi';
+import classnames from 'classnames';
+import Header from './header';
+import Footer from './footer';
+import { initRem, setTitle, getLocalStorage } from '@/utils';
+import 'antd/dist/antd.less';
 import styles from './index.less';
 
 export default function Layout() {
@@ -24,7 +26,9 @@ export default function Layout() {
 
   return (
     <section className={classnames(styles.layout)}>
+      <Header />
       <Outlet />
+      <Footer />
     </section>
   );
 }

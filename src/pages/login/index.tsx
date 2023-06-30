@@ -1,19 +1,20 @@
-import { setLocalStorage } from '@/utils';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, message } from 'antd';
-import classnames from 'classnames';
+import {
+  Button, Checkbox, Form, Input, message,
+} from 'antd';
 import { useState } from 'react';
 import { history } from 'umi';
+import { setLocalStorage } from '@/utils';
 import styles from './index.less';
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const onFinish = (values: any) => {
-    if (values.username === 'root' && values.password === '123456') {
+    if (values.email === 'root' && values.password === '123456') {
       setLoading(true);
       // 设置 localStorage 值
       setLocalStorage('account', {
-        username: values.username,
+        email: values.email,
         password: values.password,
       });
       setTimeout(() => {
@@ -29,42 +30,39 @@ export default function LoginPage() {
   return (
     <div className={styles.login}>
       <div className={styles.login__container}>
-        <div className={styles['login__container__content']}>
-          <h1>
-            <i className={classnames('iconfont', 'icon-map')}></i>地图
-          </h1>
+        <div className={styles.login__container__content}>
           <Form
-            className={styles['login__form']}
+            className={styles.login__form}
             initialValues={{ remember: true }}
             onFinish={onFinish}
           >
             <Form.Item
-              name="username"
-              rules={[{ required: true, message: '请输入帐号！' }]}
+              name="email"
+              rules={[{ required: true, message: 'Please input email address!' }]}
             >
               <Input
                 bordered={false}
                 className={styles['login__form-input']}
                 prefix={<UserOutlined className="user-icon" />}
-                placeholder="帐号"
+                placeholder="Email address"
               />
             </Form.Item>
             <Form.Item
               name="password"
-              rules={[{ required: true, message: '请输入密码！' }]}
+              rules={[{ required: true, message: 'Please input password!' }]}
             >
               <Input
                 className={styles['login__form-input']}
                 bordered={false}
                 prefix={<LockOutlined className="password-icon" />}
                 type="password"
-                placeholder="密码"
+                placeholder="Passward"
               />
             </Form.Item>
             <Form.Item className={styles['login__form-remember']}>
               <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox className={styles['login__form-remember__checkbox']}>
-                  记住密码
+                  Remember
                 </Checkbox>
               </Form.Item>
 
@@ -72,7 +70,7 @@ export default function LoginPage() {
                 className={styles['login__form-remember__forgot']}
                 href="/login"
               >
-                忘记密码?
+                Register
               </a>
             </Form.Item>
 
@@ -85,16 +83,10 @@ export default function LoginPage() {
                 className={styles['login__form-button']}
                 size="large"
               >
-                登录
+                Log in
               </Button>
             </Form.Item>
           </Form>
-        </div>
-        <div className={styles['login__container__banner']}>
-          <img
-            src={require('../../assets/img/login_banner.png')}
-            alt="login-banner"
-          />
         </div>
       </div>
     </div>
