@@ -1,0 +1,104 @@
+.login {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(9, 94, 203);
+  background: linear-gradient(
+    135deg,
+    rgba(9, 94, 203, 1) 35%,
+    rgba(0, 66, 171, 1) 100%
+  );
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__content {
+      width: 275px;
+      margin-right: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        font-size: 50px;
+        color: white;
+        margin-bottom: 80px;
+        font-family: fangsong;
+        :global {
+          .icon-map {
+            margin-right: 12px;
+            font-size: 50px;
+          }
+        }
+      }
+      .login__form {
+        width: 100%;
+        &-input {
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid white;
+          padding: 8px 8px;
+          :global {
+            .user-icon,
+            .password-icon {
+              color: white;
+              font-size: 20px;
+            }
+          }
+          input {
+            background-color: transparent;
+            font-size: 16px;
+            padding-left: 12px;
+            color: white;
+            &::placeholder {
+              color: white;
+              font-size: 16px;
+              transform: translateY(1px);
+            }
+          }
+        }
+        &-remember {
+          margin-top: 45px;
+          :global {
+            .ant-form-item-control-input-content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+          }
+          &__checkbox {
+            span {
+              color: white;
+              font-size: 16px;
+            }
+            :global {
+              .ant-checkbox {
+                transform: translateY(-2px) scale(0.9);
+                margin-right: 4px;
+              }
+            }
+          }
+          &__forgot {
+            color: white;
+            font-size: 16px;
+          }
+        }
+        &-button {
+          height: 50px;
+          span {
+            transform: translateY(2px);
+            font-weight: 600;
+            color: #0c68e0;
+          }
+          :global {
+            .anticon {
+              transform: translateY(-4px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
