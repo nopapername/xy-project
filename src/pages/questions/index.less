@@ -1,0 +1,36 @@
+.questions {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 426px);
+  padding: 20px 50px;
+  padding-bottom: 50px;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__container {
+    margin-top: 50px;
+    width: 50vw;
+    padding: 20px 0;
+    h1 {
+      font-size: 80px;
+      font-weight: 700;
+      color: #dda81e;
+      line-height: 1;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      span {
+        margin-bottom: 25px;
+        font-size: 20px;
+      }
+    }
+    &__tips {
+        margin-top: 25px;
+        font-size: 30px;
+        font-weight: 600;
+        font-style: italic;
+    }
+  }
+}

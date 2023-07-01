@@ -1,0 +1,58 @@
+.products {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 426px);
+  padding: 20px 50px;
+  padding-bottom: 50px;
+  background-color: #efefef;
+  &__container {
+    padding: 50px 20px;
+    display: flex;
+    &-left {
+      position: fixed;
+      padding: 50px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      &__filter, &__features , &__prices {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 35px;
+      }
+      &__features {
+        :global {
+          .ant-checkbox-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    &-content {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-left: 400px;
+      &-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        cursor: pointer;
+        img {
+          width: 260px;
+          height: 300px;
+        }
+        span {
+          text-align: center;
+          font-size: 25px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

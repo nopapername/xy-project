@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { Button } from 'antd';
 import { history } from 'umi';
-import { clearLocalStorage } from '@/utils';
+import { clearLocalStorage, getLocalStorage } from '@/utils';
 import styles from './index.less';
 
 export default function Header() {
@@ -11,9 +11,9 @@ export default function Header() {
         FASHION<br />HUB
       </div>
       <nav className={styles.header__nav}>
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#products">PRODUCTS</a>
+        <a href="/home">HOME</a>
+        <a href="/questions">ABOUT</a>
+        <a href="/products">PRODUCTS</a>
         <a href="#contact">CONTACT</a>
         <a href="#collect"><i className={classnames('iconfont', 'icon-xiai')} /> </a>
         <a href="#cart"><i className={classnames('iconfont', 'icon-gouwuche')} /> </a>
@@ -22,7 +22,7 @@ export default function Header() {
           className={styles.home__logout}
           type="link"
           onClick={() => {
-            clearLocalStorage();
+            clearLocalStorage('account');
             return history.push('/login');
           }}
         >

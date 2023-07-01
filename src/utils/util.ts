@@ -22,9 +22,13 @@ export function setLocalStorage(key: string, value: any) {
   }
 }
 
-export function clearLocalStorage() {
+export function clearLocalStorage(key: string) {
   try {
-    localStorage.clear();
+    if (key) {
+      localStorage.removeItem(key)
+    } else {
+      localStorage.clear();
+    }
   } catch (error) {
     console.error('Error clearing localStorage:', error);
   }
