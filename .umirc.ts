@@ -3,6 +3,7 @@ import pxtorem from 'postcss-pxtorem';
 export default {
   npmClient: 'yarn',
   routes: [
+    { path: '/', redirect: '/home' },
     { path: '/home', component: '@/pages/home' },
     { path: '/login', component: '@/pages/login' },
     { path: '/questions', component: '@/pages/questions' },

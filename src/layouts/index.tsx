@@ -1,5 +1,7 @@
 import { useMount } from 'ahooks';
-import { history, Outlet, useModel, useLocation } from 'umi';
+import {
+  history, Outlet, useModel, useLocation,
+} from 'umi';
 import classnames from 'classnames';
 import Header from './header';
 import Footer from './footer';
@@ -15,17 +17,18 @@ export default function Layout() {
   useMount(() => {
     // 4k
     initRem(isMinScreen, setIsMinScreen);
-    setTitle('地图模块');
+    setTitle('Fashion_HUB');
   });
 
   useEffect(() => {
     const account = getLocalStorage('account');
-    if (!account) {
+    console.log(location.pathname !== '/');
+    if (!account && !(location.pathname.includes('/home') || location.pathname === '/')) {
       // 未获取到值，重定向到 /login
       return history.push('/login');
     }
     if (location.pathname.includes('/login')) return history.push('/home');
-  }, [location.pathname])
+  }, [location.pathname]);
 
   return (
     <section className={classnames(styles.layout)}>
