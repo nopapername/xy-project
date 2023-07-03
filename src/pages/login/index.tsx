@@ -11,23 +11,23 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
   const onFinish = (values: any) => {
-    const accountList = getLocalStorage("accountList") || []
+    const accountList = getLocalStorage('accountList') || [];
     if (isRegister) {
-      if (accountList.some(i => i.email === values.email)) return message.error('account exist');
-      const newAccountList = [{ email: values.email, password: values.password, username: values.username }, ...accountList]
-      setLocalStorage('accountList', newAccountList)
+      if (accountList.some((i) => i.email === values.email)) return message.error('account exist');
+      const newAccountList = [{ email: values.email, password: values.password, username: values.username }, ...accountList];
+      setLocalStorage('accountList', newAccountList);
       message.success('register success');
-      setIsRegister(false)
-      return
+      setIsRegister(false);
+      return;
     }
-    const acc = accountList.find(i => i.email === values.email)
+    const acc = accountList.find((i) => i.email === values.email);
     if (acc && acc.password === values.password) {
       setLoading(true);
       // 设置 localStorage 值
       setLocalStorage('account', {
         email: values.email,
         password: values.password,
-        username: values.username
+        username: values.username,
       });
       setTimeout(() => {
         setLoading(false);
@@ -40,8 +40,8 @@ export default function LoginPage() {
   };
 
   const changeIsRegister = () => {
-    setIsRegister(!isRegister)
-  }
+    setIsRegister(!isRegister);
+  };
 
   return (
     <section className={styles.login}>
@@ -95,7 +95,7 @@ export default function LoginPage() {
 
               <Button
                 className={styles['login__form-remember__forgot']}
-                type='link'
+                type="link"
                 onClick={changeIsRegister}
               >
                 {isRegister ? 'Return Login' : 'Register'}
