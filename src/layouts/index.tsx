@@ -22,7 +22,6 @@ export default function Layout() {
 
   useEffect(() => {
     const account = getLocalStorage('account');
-    console.log(location.pathname !== '/');
     if (!account && !(location.pathname.includes('/home') || location.pathname === '/')) {
       // 未获取到值，重定向到 /login
       return history.push('/login');
