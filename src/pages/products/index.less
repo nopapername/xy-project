@@ -14,10 +14,20 @@
       background-color: white;
       display: flex;
       flex-direction: column;
-      &__filter, &__features , &__prices {
+      &__filter,
+      &__features,
+      &__price,
+      &__tags {
         display: flex;
         flex-direction: column;
         margin-bottom: 35px;
+        &-title {
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+        &-tag {
+          display: flex;
+        }
       }
       &__features {
         :global {

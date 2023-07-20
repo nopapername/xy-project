@@ -1,7 +1,10 @@
-import classnames from 'classnames';
-import { Input, Checkbox, Slider } from 'antd';
+import { useState } from 'react';
+import {
+  Input, Checkbox, Slider, Tag,
+} from 'antd';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 import type { SliderMarks } from 'antd/es/slider';
+import classnames from 'classnames';
 import styles from './index.less';
 
 const { Search } = Input;
@@ -140,8 +143,11 @@ const products = {
     },
   ],
 };
+const { CheckableTag } = Tag;
 
 export default function ProductsPage() {
+  const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
+
   const featureOptions = [
     { label: 'Coat (40)', value: 'coat' },
     { label: 'Dress (20)', value: 'dress' },
@@ -153,9 +159,16 @@ export default function ProductsPage() {
     { label: 'Tank_Top (10)', value: 'tank_top' },
   ];
 
+  const tagsData = ['Hot', 'High Rate'];
+
   const priceMarks: SliderMarks = {
     0: '$0',
     1000: '$1000',
+  };
+
+  const handleSelectTagChange = (tag: string, checked: boolean) => {
+    const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter((t) => t !== tag);
+    setSelectedTags(nextSelectedTags);
   };
 
   const onFilterSearch = (value: string) => console.log(value);
@@ -194,6 +207,19 @@ export default function ProductsPage() {
               max={1000}
               min={0}
             />
+          </div>
+          <div className={styles['products__container-left__tags']}>
+            <span className={styles['products__container-left__tags-title']}>Tag</span>
+            <div className={styles['products__container-left__tags-tag']}>{tagsData.map((tag) => (
+              <CheckableTag
+                key={tag}
+                checked={selectedTags.indexOf(tag) > -1}
+                onChange={(checked) => handleSelectTagChange(tag, checked)}
+              >
+                {tag}
+              </CheckableTag>
+            ))}
+            </div>
           </div>
         </div>
         <div className={styles['products__container-content']}>
