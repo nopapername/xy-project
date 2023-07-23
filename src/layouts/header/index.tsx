@@ -21,6 +21,15 @@ export default function Header() {
         <Link to="/cart"><i className={classnames('iconfont', 'icon-xiai')} /> </Link>
         <Link to="/cart"><i className={classnames('iconfont', 'icon-gouwuche')} /> </Link>
         <Link to="#user"><i className={classnames('iconfont', 'icon-yonghu')} /> </Link>
+        <Button
+          className={styles.home__langulage}
+          type="link"
+          onClick={() => {
+            location.pathname.includes('home-chinese') ? history.push('/home') : history.push('/home-chinese');
+          }}
+        >
+          {location.pathname.includes('home-chinese') ? 'english' : 'chinese'}
+        </Button>
         {account && <Button
           className={styles.home__logout}
           type="link"

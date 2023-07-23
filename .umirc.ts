@@ -5,6 +5,7 @@ export default {
   routes: [
     { path: '/', redirect: '/home' },
     { path: '/home', component: '@/pages/home' },
+    { path: '/home-chinese', component: '@/pages/home-chinese' },
     { path: '/login', component: '@/pages/login' },
     { path: '/questions', component: '@/pages/questions' },
     { path: '/products', component: '@/pages/products' },
