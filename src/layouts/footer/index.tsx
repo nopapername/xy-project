@@ -1,28 +1,29 @@
 import classnames from 'classnames';
+import { Link } from 'umi';
 import MapComponent from '../../common/component/map';
 import styles from './index.less';
 
 export default function Footer() {
   return (
-    <footer className={classnames(styles.footer)}>
+    <footer className={classnames(styles.footer)} id="footer">
       <div className={styles.footer__left}>
         <nav className={styles.footer__nav}>
-          <a href="#home">Home</a>
-          <a href="#specials">Current Specials</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#search">Search</a>
+          <Link to="#home">Home</Link>
+          <Link to="#specials">Current Specials</Link>
+          <Link to="#about">About Us</Link>
+          <Link to="#contact">Contact Us</Link>
+          <Link to="#search">Search</Link>
         </nav>
-        <a href="#qa" className={styles.footer__qa}>Questions Or Comments?</a>
-        <div className={styles.footer__pay}><a href="#mastercard"><i className={classnames('iconfont', 'icon-cc-mastercard')} /> </a>
-          <a href="#ccvisa"><i className={classnames('iconfont', 'icon-ccvisa')} /> </a>
+        <Link to="#qa" className={styles.footer__qa}>Questions Or Comments?</Link>
+        <div className={styles.footer__pay}><Link to="#mastercard"><i className={classnames('iconfont', 'icon-cc-mastercard')} /> </Link>
+          <Link to="#ccvisa"><i className={classnames('iconfont', 'icon-ccvisa')} /> </Link>
         </div>
       </div>
       <div className={styles.footer__right}>
         <div className={styles.footer__link}>
-          <a href="#facebook"><i className={classnames('iconfont', 'icon-facebook')} /> </a>
-          <a href="#linkedin"><i className={classnames('iconfont', 'icon-linkedin')} /> </a>
-          <a href="#youtube"><i className={classnames('iconfont', 'icon-youtube')} /> </a>
+          <Link to="#facebook"><i className={classnames('iconfont', 'icon-facebook')} /> </Link>
+          <Link to="#linkedin"><i className={classnames('iconfont', 'icon-linkedin')} /> </Link>
+          <Link to="#youtube"><i className={classnames('iconfont', 'icon-youtube')} /> </Link>
         </div>
         <div className={styles.footer__map}>
           <div className={styles.footer__map__container}><MapComponent /></div>

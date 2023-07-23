@@ -54,42 +54,42 @@ export default function LoginPage() {
           >
             {isRegister && <Form.Item
               name="username"
-              rules={[{ required: true, message: 'Please input username!' }]}
+              rules={[{ required: true, message: 'Please input username! (请输入用户名)' }]}
             >
               <Input
                 bordered={false}
                 className={styles['login__form-input']}
                 prefix={<UserOutlined className="user-icon" />}
-                placeholder="username"
+                placeholder="username（用户名）"
               />
             </Form.Item>}
             <Form.Item
               name="email"
-              rules={[{ required: true, message: 'Please input email address!' }]}
+              rules={[{ required: true, message: 'Please input email address! (请输入邮箱)' }]}
             >
               <Input
                 bordered={false}
                 className={styles['login__form-input']}
                 prefix={<MailOutlined className="mail-icon" />}
-                placeholder="Email address"
+                placeholder="Email address（邮箱）"
               />
             </Form.Item>
             <Form.Item
               name="password"
-              rules={[{ required: true, message: 'Please input password!' }]}
+              rules={[{ required: true, message: 'Please input password! (请输入密码)' }]}
             >
               <Input
                 className={styles['login__form-input']}
                 bordered={false}
                 prefix={<LockOutlined className="password-icon" />}
                 type="password"
-                placeholder="Passward"
+                placeholder="Passward（密码）"
               />
             </Form.Item>
             <Form.Item className={styles['login__form-remember']}>
               {!isRegister && <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox className={styles['login__form-remember__checkbox']}>
-                  Remember
+                  Remember （记住）
                 </Checkbox>
               </Form.Item>}
 
@@ -98,7 +98,7 @@ export default function LoginPage() {
                 type="link"
                 onClick={changeIsRegister}
               >
-                {isRegister ? 'Return Login' : 'Register'}
+                {isRegister ? 'Return Login（返回登录）' : 'Register（注册）'}
               </Button>
             </Form.Item>
 
@@ -111,7 +111,7 @@ export default function LoginPage() {
                 className={styles['login__form-button']}
                 size="large"
               >
-                {isRegister ? 'Join' : 'Log in'}
+                {isRegister ? 'Join（加入）' : 'Log in（登入）'}
               </Button>
             </Form.Item>
           </Form>

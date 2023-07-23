@@ -25,7 +25,7 @@ export function setLocalStorage(key: string, value: any) {
 export function clearLocalStorage(key: string) {
   try {
     if (key) {
-      localStorage.removeItem(key)
+      localStorage.removeItem(key);
     } else {
       localStorage.clear();
     }
@@ -141,6 +141,7 @@ export function scrollToElementById(
   offset = 0
 ): void {
   const targetElement = document.getElementById(id);
+  console.log(targetElement);
   if (!targetElement) {
     return;
   }

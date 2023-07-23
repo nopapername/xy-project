@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { useMemo } from 'react';
 import { Button } from 'antd';
-import { history, useLocation } from 'umi';
+import { Link, history, useLocation } from 'umi';
 import { clearLocalStorage, getLocalStorage } from '@/utils';
 import styles from './index.less';
 
@@ -14,13 +14,13 @@ export default function Header() {
         FASHION<br />HUB
       </div>
       <nav className={styles.header__nav}>
-        <a href="/home">HOME</a>
-        <a href="/questions">ABOUT</a>
-        <a href="/products">PRODUCTS</a>
-        <a href="#contact">CONTACT</a>
-        <a href="#collect"><i className={classnames('iconfont', 'icon-xiai')} /> </a>
-        <a href="#cart"><i className={classnames('iconfont', 'icon-gouwuche')} /> </a>
-        <a href="#user"><i className={classnames('iconfont', 'icon-yonghu')} /> </a>
+        <Link to="/home">HOME</Link>
+        <Link to="/questions">ABOUT</Link>
+        <Link to="/products">PRODUCTS</Link>
+        <Link to="/contact">CONTACT</Link>
+        <Link to="/cart"><i className={classnames('iconfont', 'icon-xiai')} /> </Link>
+        <Link to="/cart"><i className={classnames('iconfont', 'icon-gouwuche')} /> </Link>
+        <Link to="#user"><i className={classnames('iconfont', 'icon-yonghu')} /> </Link>
         {account && <Button
           className={styles.home__logout}
           type="link"

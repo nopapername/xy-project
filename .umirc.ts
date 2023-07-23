@@ -8,6 +8,9 @@ export default {
     { path: '/login', component: '@/pages/login' },
     { path: '/questions', component: '@/pages/questions' },
     { path: '/products', component: '@/pages/products' },
+    { path: '/contact', component: '@/pages/contact' },
+    { path: '/cart', component: '@/pages/cartOrFavorite' },
+    { path: '/order', component: '@/pages/order' },
     {
       path: '*',
       redirect: '/404',
